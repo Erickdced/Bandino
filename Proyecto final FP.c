@@ -227,8 +227,50 @@ void admin(int opc1)
             printf("opci%cn de dinero invalida\n", 162);
           }
         } while (montoActual != 500);
-        y++;
-      
+        break;
+      case 2:
+        archivoUser = fopen("user.txt", "w");
+        archivoPass = fopen("pass.txt", "w");
+         
+        printf("Ingrese el nuevo usuario de cliente\n");
+        clear_stdin();
+        fgets(qG, 50, stdin);
+        trim_newline(qG);
+        printf("Ingrese el nueva contrase%ca de cliente\n",164);
+        scanf("%49s", &pG);
+        fprintf(archivoUser, "%s\n", qG);
+        fprintf(archivoPass, "%s\n", pG);
+        fclose(archivoUser);
+        fclose(archivoPass);
+        break;
+      case 3:
+        printf("dinero actual del cliente: %f", montoActual);
+        printf("\n inserte el nuevo dinero que tendr%c", 160);
+        scanf("%f", &montoActual);
+        break;
+      case 4:
+        FILE *ticket = fopen("tickets.txt", "a");
+          char linea[1024];
+          while (fgets(linea, sizeof(linea), ticket)) 
+        {
+            fputs(linea, stdout);
+        }
+        fclose(ticket);
+        break;
+      case 5:
+        printf("eliminar al cliente");
+        archivoUser = fopen("user.txt", "w");
+        archivoPass = fopen("pass.txt", "w");
+        fprintf(archivoUser, "\n");
+        fprintf(archivoPass, "\n");
+        fclose(archivoPass);
+        fclose(archivoUser);
+        break;
+      case 6:
+        printf("saliendo");
+        break;
+      default:
+        printf("opci%cn inv%clida", 162, 160);
     }
   } while (leido == 0);
 }
