@@ -185,7 +185,9 @@ void menu() {
   } while (leido == 0);
 }
 
-void admin(int opc1) {
+void admin(int opc1) 
+{
+  char qG[50], pG[50];
   printf("\n");
   printf("Acceso concedido\n");
   printf("Menu de Administrador\n");
@@ -194,13 +196,39 @@ void admin(int opc1) {
   printf("3- Modificar dinero del cliente\n");
   printf("4- Visualizar las transacciones del cliente\n");
   printf("5- Eliminar algun cliente\n");
+  printf("6- Salir");
   printf("Digite su \n", 162);
   do {
     leido = scanf("%i", &opc1);
     if (leido == 0) {
       printf("Debe ingresar un entero\n");
-      while (getchar() != '\n')
-        ;
+      while (getchar() != '\n');
+    }
+    switch(opc1)
+    {
+      case 1:
+        archivoUser = fopen("user.txt", "a+");
+        archivoPass = fopen("pass.txt", "a+");
+         
+        printf("Ingrese su nuevo usuario de cliente\n");
+        clear_stdin();
+        fgets(qG, 50, stdin);
+        trim_newline(qG);
+        printf("Ingrese su nueva contrase%ca de cliente\n",164);
+        scanf("%49s", &pG);
+        fprintf(archivoUser, "%s\n", qG);
+        fprintf(archivoPass, "%s\n", pG);
+        fclose(archivoUser);
+        fclose(archivoPass);
+        do {
+          printf("Ingrese 500 pesos para crear su cuenta\n");
+          scanf("%f", &montoActual);
+          if (montoActual != 500) {
+            printf("opci%cn de dinero invalida\n", 162);
+          }
+        } while (montoActual != 500);
+        y++;
+      
     }
   } while (leido == 0);
 }
