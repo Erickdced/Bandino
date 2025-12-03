@@ -28,6 +28,7 @@ void trim_newline(char *s) {
   if (len > 0 && s[len - 1] == '\n')
     s[len - 1] = '\0';
 }
+
 void clear_stdin(void) {
   int c;
   while ((c = getchar()) != '\n' && c != EOF);
@@ -109,13 +110,13 @@ int main() {
         printf("Acceso denegado\n");
         accesoConcedido = 2;
       } else {
-        printf("Opci�n no v�lida\n");
+        printf("Opci%cn no v%clida\n", 162, 160);
       }
       break;
     case 2:
       archivoUser = fopen("user.txt", "a+");
       archivoPass = fopen("pass.txt", "a+");
-      if (y == 0) {
+      if (y == 0) { 
         printf("Ingrese su nuevo usuario de cliente\n");
         clear_stdin();
         fgets(qG, 50, stdin);
@@ -135,7 +136,7 @@ int main() {
         } while (montoActual != 500);
         y++;
       }
-      printf("Ingrese el usuario y contrase�a de cliente\n");
+      printf("Ingrese el usuario y contrase%ca de cliente\n", 164);
       scanf("%s %s", &q, &p);
       if (strcmp(q, qG) == 0 && strcmp(p, pG) == 0) {
         accesoConcedido = 1;
@@ -312,21 +313,21 @@ float Invertir (float montoInvertir){
     montoActual= montoActual + ganancia;
     printf ("RESULTADOS DE LA INVERSION \n");
     if (ganancia > 0) {
-            printf("�Ganancia! Obtuviste un %.2f%%\n", porcentaje);
+            printf("%cGanancia! Obtuviste un %.2f%%\n",173, porcentaje);
             printf("Ganaste: %.2f\n", ganancia);
         } else if (ganancia < 0) {
             printf("Perdiste un %.2f%%\n", porcentaje);
             printf("Perdiste: %.2f\n", -ganancia);
         } else {
-            printf("La inversi�n qued� igual (0%%).\n");
+            printf("La inversi%cn qued%c igual (0%%).\n", 162, 162);
         }
         printf("Tu nuevo saldo es: %.2f\n", montoActual);
         char fechaHora[20];
         obtenerFechaHora(fechaHora, sizeof(fechaHora));
         char ticket[200];
-        sprintf(ticket, "Ticket de Inversi�n\nFecha y Hora: %s\nMonto Invertido: %.2f\nGanancia: %.2f\nSaldo Actual: %.2f\n\n", fechaHora,           montoInvertir, ganancia, montoActual);
+        sprintf(ticket, "Ticket de Inversi%cn\nFecha y Hora: %s\nMonto Invertido: %.2f\nGanancia: %.2f\nSaldo Actual: %.2f\n\n", 162,fechaHora,           montoInvertir, ganancia, montoActual);
         guardarTicket(ticket);
-        printf("Ticket de inversi�n generado y guardado.\n");
+        printf("Ticket de inversi%cn generado y guardado.\n", 162);
         printf("%s", ticket);
         return montoActual;
     }
