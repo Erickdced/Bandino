@@ -109,7 +109,7 @@ int main() {
         printf("Acceso denegado\n");
         accesoConcedido = 2;
       } else {
-        printf("Opción no válida\n");
+        printf("Opciï¿½n no vï¿½lida\n");
       }
       break;
     case 2:
@@ -135,7 +135,7 @@ int main() {
         } while (montoActual != 500);
         y++;
       }
-      printf("Ingrese el usuario y contraseña de cliente\n");
+      printf("Ingrese el usuario y contraseï¿½a de cliente\n");
       scanf("%s %s", &q, &p);
       if (strcmp(q, qG) == 0 && strcmp(p, pG) == 0) {
         accesoConcedido = 1;
@@ -312,21 +312,21 @@ float Invertir (float montoInvertir){
     montoActual= montoActual + ganancia;
     printf ("RESULTADOS DE LA INVERSION \n");
     if (ganancia > 0) {
-            printf("¡Ganancia! Obtuviste un %.2f%%\n", porcentaje);
+            printf("ï¿½Ganancia! Obtuviste un %.2f%%\n", porcentaje);
             printf("Ganaste: %.2f\n", ganancia);
         } else if (ganancia < 0) {
             printf("Perdiste un %.2f%%\n", porcentaje);
             printf("Perdiste: %.2f\n", -ganancia);
         } else {
-            printf("La inversión quedó igual (0%%).\n");
+            printf("La inversiï¿½n quedï¿½ igual (0%%).\n");
         }
         printf("Tu nuevo saldo es: %.2f\n", montoActual);
         char fechaHora[20];
         obtenerFechaHora(fechaHora, sizeof(fechaHora));
         char ticket[200];
-        sprintf(ticket, "Ticket de Inversión\nFecha y Hora: %s\nMonto Invertido: %.2f\nGanancia: %.2f\nSaldo Actual: %.2f\n\n", fechaHora,           montoInvertir, ganancia, montoActual);
+        sprintf(ticket, "Ticket de Inversiï¿½n\nFecha y Hora: %s\nMonto Invertido: %.2f\nGanancia: %.2f\nSaldo Actual: %.2f\n\n", fechaHora,           montoInvertir, ganancia, montoActual);
         guardarTicket(ticket);
-        printf("Ticket de inversión generado y guardado.\n");
+        printf("Ticket de inversiï¿½n generado y guardado.\n");
         printf("%s", ticket);
         return montoActual;
     }
