@@ -91,6 +91,7 @@ int main() {
 
             if (strcmp(u, uG) == 0 && strcmp(c, cG) == 0) { // Comparamos las cadenas de caracteres para verificar si son iguales
               accesoConcedido = 1;
+              x = 3;
               intentos = 3;
             } else {
               printf("Usuario o contrase%ca incorrectos\n", 164);
