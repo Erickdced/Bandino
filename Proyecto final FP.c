@@ -110,9 +110,9 @@ int main() {
       if (accesoConcedido == 0) {
         printf("Acceso denegado\n");
         accesoConcedido = 2;
-      } else {
+      } /*else {
         printf("Opci%cn no v%clida\n", 162, 160);
-      }
+      }*/
       break;
     case 2:
       archivoUser = fopen("user.txt", "a+");
@@ -197,8 +197,8 @@ void admin(int opc1)
   printf("3- Modificar dinero del cliente\n");
   printf("4- Visualizar las transacciones del cliente\n");
   printf("5- Eliminar algun cliente\n");
-  printf("6- Salir");
-  printf("Digite su \n", 162);
+  printf("6- Salir\n");
+  printf("Digite su opci%cn\n", 162);
   do {
     leido = scanf("%i", &opc1);
     if (leido == 0) {
@@ -224,6 +224,7 @@ void admin(int opc1)
         fprintf(archivoPass, "%s\n", pG);
         fclose(archivoUser);
         fclose(archivoPass);
+        while(getchar()!='\n');
         do {
           printf("Ingrese 500 pesos para crear su cuenta\n");
           scanf("%f", &montoActual);
