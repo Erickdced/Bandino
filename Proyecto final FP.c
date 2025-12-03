@@ -19,7 +19,7 @@ void ticketInversion(float, float, float);
 void ticketConsulta(float);
 
 int x, y, leido; //"x" y "y" son variables que sirven en caso de que el usuario
-                 //tenga que crear un nuevo usuario y contrasenia
+                 //tenga que crear un nuevo usuario y contraseña
 int opc;
 float montoActual = 500, montoRetirado, montoIngresado, montoFinal, montoTransferencia, montoInvertir;
 
@@ -68,7 +68,7 @@ int main() {
           clear_stdin();
           fgets(uG, 50, stdin);
           trim_newline(uG);
-          printf("Ingrese su nueva contrasenia de administrador\n");
+          printf("Ingrese su nueva contrase%ca de administrador\n", 164);
           scanf("%49s", &cG);
           fprintf(archivoUsuario, "%s\n", uG);
           fprintf(archivoContrasenia, "%s\n", cG);
@@ -86,14 +86,14 @@ int main() {
             clear_stdin();
             fgets(u, 50, stdin);
             trim_newline(u);
-            printf("Ingrese su contrasenia de administrador\n");
+            printf("Ingrese su contrase%ca de administrador\n", 164);
             scanf("%49s", &c);
 
             if (strcmp(u, uG) == 0 && strcmp(c, cG) == 0) { // Comparamos las cadenas de caracteres para verificar si son iguales
               accesoConcedido = 1;
               intentos = 3;
             } else {
-              printf("Usuario o contrasenia incorrectos\n");
+              printf("Usuario o contrase%ca incorrectos\n", 164);
               intentos++;
             }
           }
@@ -121,7 +121,7 @@ int main() {
         clear_stdin();
         fgets(qG, 50, stdin);
         trim_newline(qG);
-        printf("Ingrese su nueva contrasenia de cliente\n");
+        printf("Ingrese su nueva contrase%ca de cliente\n",164);
         scanf("%49s", &pG);
         fprintf(archivoUser, "%s\n", qG);
         fprintf(archivoPass, "%s\n", pG);
@@ -141,7 +141,7 @@ int main() {
       if (strcmp(q, qG) == 0 && strcmp(p, pG) == 0) {
         accesoConcedido = 1;
       } else {
-        printf("Usuario o contrasenia incorrectos\n");
+        printf("Usuario o contrase%ca incorrectos\n", 164);
       }
       if (accesoConcedido == 1) {
         cliente(opc);
@@ -189,7 +189,7 @@ void admin(int opc1) {
   printf("\n");
   printf("Acceso concedido\n");
   printf("Menu de Administrador\n");
-  printf("1- Aniadir clientes\n");
+  printf("1- A%cadir clientes\n", 164);
   printf("2- Modificar datos del cliente\n");
   printf("3- Modificar dinero del cliente\n");
   printf("4- Visualizar las transacciones del cliente\n");

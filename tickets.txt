@@ -1,0 +1,6 @@
+Ticket de Inversi¢n
+Fecha y Hora: 2025-12-03 12:10:28
+Monto Invertido: 500.00
+Ganancia: 25.00
+Saldo Actual: 525.00
+
