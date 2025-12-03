@@ -51,9 +51,9 @@ int main() {
     case 1:
       do {
         printf("1- Crear nueva cuenta\n");
-        printf("2- Inciar sesion\n");
+        printf("2- Inciar sesi%cn\n", 162);
         printf("3- Salir\n");
-        printf("Digite su opcion\n");
+        printf("Digite su opci%cn\n", 162);
         do {
           leido = scanf("%i", &x);
           if (leido == 0) {
@@ -100,7 +100,7 @@ int main() {
         } else if (x == 3) {
           printf("Volviendo al menu\n");
         } else {
-          printf("Opcion invalida\n");
+          printf("Opci%cn invalida\n", 162);
         }
       } while (x != 3);
       if (accesoConcedido == 1) {
@@ -131,7 +131,7 @@ int main() {
           printf("Ingrese 500 pesos para crear su cuenta\n");
           scanf("%f", &montoActual);
           if (montoActual != 500) {
-            printf("Opcion de dinero invalida\n");
+            printf("opci%cn de dinero invalida\n", 162);
           }
         } while (montoActual != 500);
         y++;
@@ -161,7 +161,7 @@ int main() {
       break;
 
     default:
-      printf("Opcion no valida\n");
+      printf("opci%cn no valida\n", 162);
       break;
     }
   } while (opc != 4);
@@ -175,7 +175,7 @@ void menu() {
   printf("2- Cliente\n");
   printf("3- Contactar programadores\n");
   printf("4- Salir\n");
-  printf("Digite su opcion\n");
+  printf("Digite su opci%cn\n", 162);
   do {
     leido = scanf("%i", &opc);
     if (leido == 0) {
@@ -194,7 +194,7 @@ void admin(int opc1) {
   printf("3- Modificar dinero del cliente\n");
   printf("4- Visualizar las transacciones del cliente\n");
   printf("5- Eliminar algun cliente\n");
-  printf("Digite su opcion\n");
+  printf("Digite su \n", 162);
   do {
     leido = scanf("%i", &opc1);
     if (leido == 0) {
@@ -205,75 +205,82 @@ void admin(int opc1) {
   } while (leido == 0);
 }
 void cliente(int opc2) {
-  printf("\n");
-  printf("Acceso concedido\n");
-  printf("Menu de Cliente\n");
-  printf("1- Retirar dinero\n");
-  printf("2- Hacer transferencias\n");
-  printf("3- Ingresar dinero a su cuenta\n");
-  printf("4- Consultar sus datos\n");
-  printf("5- Invertir en la bolsa\n");
-  printf("Digite su opcion\n");
-  do {
-    leido = scanf("%i", &opc2);
-    if (leido == 0) {
-      printf("Debe ingresar un entero\n");
-      while (getchar() != '\n');
+  while(opc2 != 6)
+  {
+    printf("\n");
+    printf("Acceso concedido\n");
+    printf("Menu de Cliente\n");
+    printf("1- Retirar dinero\n");
+    printf("2- Hacer transferencias\n");
+    printf("3- Ingresar dinero a su cuenta\n");
+    printf("4- Consultar sus datos\n");
+    printf("5- Invertir en la bolsa\n");
+    printf("6- Cerrar sesi%cn \n", 162);
+    printf("Digite su opci%cn\n", 162);
+    do {
+      leido = scanf("%i", &opc2);
+      if (leido == 0) {
+        printf("Debe ingresar un entero\n");
+        while (getchar() != '\n');
+      }
+    } while (leido == 0);
+    switch (opc2) {
+    case 1:
+      printf("Tu saldo actual es: %.4f\n", montoActual);
+      do {
+        printf("Ingrese la cantidad de dinero que desea retirar\n");
+        scanf("%f", &montoRetirado);
+        if (montoRetirado > montoActual || montoRetirado < 0) {
+          printf("Cantidad de dinero ingresada invalida, ingrese una nueva cifra\n");
+        }
+      } while (montoRetirado > montoActual || montoRetirado < 0);
+      montoActual = montoA();
+      printf("Su saldo final es: %.2f\n", montoActual);
+      printf("Dinero Retirado: %.2f\n", montoRetirado);
+      ticketRetiro(montoRetirado, montoActual);
+      break;
+    case 2:
+      printf ("Ingrese la clabe interbancaria (18 digitos) de la cuenta a la que desea transferir el dinero\n");
+      char cuenta[18];
+      scanf ("%18s", &cuenta);
+      printf ("Escriba el nombre del destinatario\n");
+      char nombre [50];
+      scanf ("%s", &nombre);
+      printf ("Ingrese la cantidad de dinero que desea transferir \n");
+      scanf ("%f", &montoTransferencia);
+      montoActual = Transferir (montoTransferencia);
+      ticketTransferencia(nombre, montoTransferencia, montoActual);
+      break;
+    case 3:
+      do {
+        printf("Ingrese la cantidad de dinero que desea ingresar a su cuenta\n");
+        scanf("%f", &montoIngresado);
+        if (montoIngresado < 0) {
+          printf("Cantidad de dinero ingresada invalida, ingrese una nueva cifra\n");
+        }
+      } while (montoIngresado < 0);
+      montoFinal = montoB();
+      printf("Saldo ingresado: %.2f\n", montoIngresado);
+      printf("Saldo final: %.2f\n", montoFinal);
+      printf("Saldo inicial: %.2f\n", montoActual);
+      montoActual = montoB();
+      ticketIngreso(montoIngresado, montoActual, montoFinal);
+      break;
+    case 4:
+      printf("Saldo actual: %.2f\n", montoActual);
+      ticketConsulta(montoActual);
+      break;
+    case 5:
+      printf ("Ingrese la cantidad de dinero que desea invertir \n");
+      scanf ("%f", &montoInvertir);
+      montoActual = Invertir (montoInvertir);
+      break;
+    case 6: 
+      printf("Sesi%cn Cerrada con %cxito \n", 162, 130);
+      break;
+    default:
+      printf("Opci%cn no valida\n", 162);
     }
-  } while (leido == 0);
-  switch (opc2) {
-  case 1:
-    printf("Tu saldo actual es: %.4f\n", montoActual);
-    do {
-      printf("Ingrese la cantidad de dinero que desea retirar\n");
-      scanf("%f", &montoRetirado);
-      if (montoRetirado > montoActual || montoRetirado < 0) {
-        printf("Cantidad de dinero ingresada invalida, ingrese una nueva cifra\n");
-      }
-    } while (montoRetirado > montoActual || montoRetirado < 0);
-    montoActual = montoA();
-    printf("Su saldo final es: %.2f\n", montoActual);
-    printf("Dinero Retirado: %.2f\n", montoRetirado);
-    ticketRetiro(montoRetirado, montoActual);
-    break;
-  case 2:
-    printf ("Ingrese la clabe interbancaria (18 digitos) de la cuenta a la que desea transferir el dinero\n");
-    char cuenta[18];
-    scanf ("%18s", &cuenta);
-    printf ("Escriba el nombre del destinatario\n");
-    char nombre [50];
-    scanf ("%s", &nombre);
-    printf ("Ingrese la cantidad de dinero que desea transferir \n");
-    scanf ("%f", &montoTransferencia);
-    montoActual = Transferir (montoTransferencia);
-    ticketTransferencia(nombre, montoTransferencia, montoActual);
-    break;
-  case 3:
-    do {
-      printf("Ingrese la cantidad de dinero que desea ingresar a su cuenta\n");
-      scanf("%f", &montoIngresado);
-      if (montoIngresado < 0) {
-        printf("Cantidad de dinero ingresada invalida, ingrese una nueva cifra\n");
-      }
-    } while (montoIngresado < 0);
-    montoFinal = montoB();
-    printf("Saldo ingresado: %.2f\n", montoIngresado);
-    printf("Saldo final: %.2f\n", montoFinal);
-    printf("Saldo inicial: %.2f\n", montoActual);
-    montoActual = montoB();
-    ticketIngreso(montoIngresado, montoActual, montoFinal);
-    break;
-  case 4:
-    printf("Saldo actual: %.2f\n", montoActual);
-    ticketConsulta(montoActual);
-    break;
-  case 5:
-    printf ("Ingrese la cantidad de dinero que desea invertir \n");
-    scanf ("%f", &montoInvertir);
-    montoActual = Invertir (montoInvertir);
-    break;
-  default:
-    printf("Opcion no valida\n");
   }
 }
 float montoA(){

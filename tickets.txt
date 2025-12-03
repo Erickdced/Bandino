@@ -4,3 +4,15 @@ Monto Invertido: 500.00
 Ganancia: 25.00
 Saldo Actual: 525.00
 
+Ticket de Ingreso
+Fecha y Hora: 2025-12-03 12:16:43
+Monto Ingresado: 5000.00
+Saldo Actual: 5500.00
+Saldo Final: 5500.00
+
+Ticket de Inversi¢n
+Fecha y Hora: 2025-12-03 12:17:11
+Monto Invertido: 5500.00
+Ganancia: 495.00
+Saldo Actual: 5995.00
+
